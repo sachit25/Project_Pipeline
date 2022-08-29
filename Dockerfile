@@ -14,10 +14,12 @@ COPY . .
 
 # ADD ./app
 # ADD target/spring-boot-rest-docker-example-0.0.1-SNAPSHOT.jar app.jar
-ADD  target/docker-jenkins-integration-sample.jar docker-jenkins-integration-sample.jar
+# ADD  target/docker-jenkins-integration-sample.jar docker-jenkins-integration-sample.jar
 
 
 
-ENTRYPOINT [ "java","-jar","/docker-jenkins-integration-sample.jar" ]
+EXPOSE 8000
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 
 # CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000"]
