@@ -7,7 +7,7 @@ def test2(request):
     return HttpResponse("test3--------------")
 
 def base(request):
-    return HttpResponse("-------Homepage-------")    
+    return HttpResponse("-------Base template-------")    
 
 # Create your views here.
 # def home(request):
