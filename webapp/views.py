@@ -2,12 +2,15 @@ import re
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.files.storage import FileSystemStorage
-
+from .models import File_Upload
 def test2(request):
     return HttpResponse("test3--------------")
 
+def index(request):
+    return render(request,'index.html')
+
 def base(request):
-    return HttpResponse("-------Homepage-------")    
+    return HttpResponse("-------Base template-------")    
 
 # Create your views here.
 # def home(request):
@@ -49,7 +52,23 @@ def home(request):
 
 def base_file(request):
     return render(request,"upload.html")   
+
 def login_pagev2(request):
-    return render(request,"login_pagev2.html")
+    if request.method == 'POST':
+       
+        eml=request.POST.get('email')
+        psw = request.POST.get('password')
+        print(eml,psw,"--2--")
+        return render(request,"login_pagev2.html",context={'error':'error'})
+    if request.method == 'GET':
+        return render(request,"login_pagev2.html")
+    
 def navbar(request):
     return render(request,'navbar.html')         
+
+def middleware_custom(get_response):
+    def func1(request):
+        response=get_response(request)
+        return response
+    return middleware_custom       
+        

@@ -9,6 +9,8 @@ urlpatterns = [
     path("navbar/",views.navbar,name='home'),
     path("login/",views. login_pagev2,name=' login_pagev2'),
     path("base/",views.base,name="base"),
+    path("index/",views.index,name="index"),
+
 
     
 ]    

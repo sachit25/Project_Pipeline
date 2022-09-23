@@ -1,3 +1,7 @@
+{% load static %}
+{% if error %}
+{% include 'errortem.html' %}
+{% endif %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +14,8 @@
     
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="#">
+		<form method="post" >
+			{% csrf_token %}
 			<h1>Contact Us</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -18,15 +23,16 @@
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
+			<input name='name' type="text" placeholder="Name" />
+			<input name='email' type="email" placeholder="Email" />
 			<!-- <textarea class="txt_area" type="textarea" placeholder="Message"></textarea> -->
-            <input type="text" placeholder="Message" />
+            <input name="textarea" type="text" placeholder="Message" />
 			<button>Sign Up</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="#">
+		<form method="post" >
+			{% csrf_token %}
 			<h1>Sign in</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -34,8 +40,8 @@
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			<input type="email" name="email" placeholder="Email" />
+			<input type="password" name="password" placeholder="Password" />
 			<a href="#">Forgot your password?</a>
 			<button>Sign In</button>
 		</form>
