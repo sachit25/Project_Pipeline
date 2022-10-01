@@ -4,3 +4,4 @@ from django.db import models
 class File_Upload(models.Model):
     file_name=models.CharField(max_length=100)
     file=models.FileField()
+    
