@@ -1,20 +1,22 @@
 version: "3.9"
 services:
-  djano-app-container:
+  djano-app-service:
     build: ./python_app/
     container_name: djano-app-container
     volumes:
-      - /var/lib/jenkins/workspace/Django_Pipeline/python_app:/app/ 
+      - /home/ubuntu/test_pipeline/Project_Pipeline/python_app:/app/ 
+    
+    ports:
+      - 8000:8000
     
     networks:
       - djano_pipe
 
-  nginx:
+  nginx_service:
     build: ./nginx_conf/
     container_name: nginx_cont
-    depands_on: djano-app-container
     ports:
-      - 80:80
+      - 8001:8001
     
     networks:
       - djano_pipe

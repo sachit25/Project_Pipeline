@@ -1,6 +1,5 @@
 FROM nginx:latest
-WORKDIR /etc/nginx/sites-available
+WORKDIR /etc/nginx/
 
-COPY default .
-RUN service nginx restart
-EXPOSE 80
+COPY default.conf /etc/nginx/conf.d
+EXPOSE 8001
