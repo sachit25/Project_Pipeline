@@ -1,8 +1,8 @@
 version: "3.9"
 services:
-  djano-app-service:
+  django-app-service:
     build: ./python_app/
-    container_name: djano-app-container
+    container_name: django-app-container
     volumes:
       - /home/ubuntu/test_pipeline/Project_Pipeline/python_app:/app/ 
     
